@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4c32c63e-7456-43eb-94ba-e215aede8a35" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/companys_logo/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/default_CV.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/media/defaut_cv.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/default_logos/default_logo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/std_cv/default_CV.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_auth/migrations/0015_auto_20200613_1930.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_auth/migrations/0015_auto_20200613_1930.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_auth/templates/user_auth/edit_account_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/user_auth/templates/user_auth/edit_account_info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_auth/templates/user_auth/modals/delete_account.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_auth/templates/user_auth/modals/edit-information.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_auth/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_auth/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_auth/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_auth/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/templates/website/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/website/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/templates/website/job_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/website/job_details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/templates/website/layouts/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/website/layouts/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/templates/website/modals/add_job.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/website/modals/add_job.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/templates/website/user_account.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/website/user_account.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/website/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/website/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/website/views.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1d77Uc2GMQB3O8rmtq5zEzerjEg" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/prooo/jobs_project" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\job_project\website\templates\website" />
+      <recent name="F:\jobs_project-master\media" />
+      <recent name="C:\Users\ProBook\Desktop\jobs_project\website\static\website\js" />
+      <recent name="C:\Users\ProBook\Desktop\jobs_project\website\static\website\css" />
+      <recent name="C:\Users\ProBook\Desktop\jobs_project\user_auth\templates\user_auth\modals" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\job_project\media\default_logos" />
+      <recent name="E:\job_project\media" />
+      <recent name="F:\jobs_project-master\media" />
+      <recent name="F:\jobs_project-master\media\default_logos" />
+      <recent name="C:\Users\ProBook\Desktop\jobs_project\media\std_cv" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.tests">
+    <configuration name="asdasasf" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="jobs_project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/website" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/website/asdasasf.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tests" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="jobs_project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/website" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/website/tests.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="jobs_project" type="Python.DjangoServer" factoryName="Django server">
+      <module name="jobs_project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.tests" />
+        <item itemvalue="Python.asdasasf" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4c32c63e-7456-43eb-94ba-e215aede8a35" name="Default Changelist" comment="" />
+      <created>1591764294840</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1591764294840</updated>
+      <workItem from="1591764299485" duration="4726000" />
+      <workItem from="1591890569627" duration="29152000" />
+      <workItem from="1591975690452" duration="5225000" />
+      <workItem from="1592007127600" duration="13849000" />
+      <workItem from="1592068860914" duration="11467000" />
+      <workItem from="1592124210555" duration="3906000" />
+      <workItem from="1592326200733" duration="4512000" />
+      <workItem from="1592382756663" duration="41593000" />
+      <workItem from="1592492530614" duration="23662000" />
+      <workItem from="1592556384227" duration="11423000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="275" y="31" key="#Inspections" timestamp="1592515277248">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="275" y="31" key="#Inspections/0.0.1366.738@0.0.1366.738" timestamp="1592515277248" />
+    <state x="413" y="120" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1592426720680">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="413" y="120" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.738@0.0.1366.738" timestamp="1592426720680" />
+    <state x="463" y="128" key="FileChooserDialogImpl" timestamp="1592563237779">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="463" y="128" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1592563237779" />
+    <state width="1323" height="535" key="GridCell.Tab.0.bottom" timestamp="1592526343814">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="535" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1592526343814" />
+    <state width="1323" height="535" key="GridCell.Tab.0.center" timestamp="1592526343814">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="535" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1592526343814" />
+    <state width="1323" height="535" key="GridCell.Tab.0.left" timestamp="1592526343813">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="535" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1592526343813" />
+    <state width="1323" height="535" key="GridCell.Tab.0.right" timestamp="1592526343814">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="535" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1592526343814" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1591893575079">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1366.738@0.0.1366.738" timestamp="1591893575079" />
+    <state x="390" y="198" key="com.intellij.ide.util.TipDialog" timestamp="1592556391433">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="390" y="198" key="com.intellij.ide.util.TipDialog/0.0.1366.738@0.0.1366.738" timestamp="1592556391433" />
+    <state x="293" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1592492943123">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="293" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.738@0.0.1366.738" timestamp="1592492943123" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1592497837646">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1592497837646" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/jobs_project_master$asdasasf.coverage" NAME="asdasasf Coverage Results" MODIFIED="1592398635864" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/website" />
+    <SUITE FILE_PATH="coverage/job_project$tests.coverage" NAME="tests Coverage Results" MODIFIED="1592523221994" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/website" />
+  </component>
+</project>

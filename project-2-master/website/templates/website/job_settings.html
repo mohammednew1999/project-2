@@ -1,0 +1,170 @@
+{% extends 'website/layouts/base.html' %}
+{% load static %}
+{% block title %}Jobs | Job Settings{% endblock %}
+{% block content %}
+    <style>
+        #company_name:hover{
+            color: white;
+        }
+    #company_name{
+        padding: 5px;
+        min-width: 70px;
+    }
+    </style>
+
+    <section id="job_details">
+    <div style="border: black 1px solid; ">
+<br>
+<div class="container">
+<div class="row">
+    <div class="col-md-6">
+        <h6 style="display:inline;">number of all views</h6> : {{ views.0.0 }}
+    </div>
+    <div class="col-md-6">
+         <h6  style="display:inline;">number of uniqe views</h6> : {{ uniqe_views }}
+    </div>
+</div>
+<hr>
+            <div class="row">
+        <div class="col-md-6 " style="border-right: 2px black solid;padding: 30px;font-size: 17px">
+{#            {{ job }}#}
+
+
+        <p style="text-align: left;font-weight: 400;font-size: 20px;text-decoration: underline #ffc107"> Your replayes for applyes of Students : </p>
+
+                    <br>
+            {% if all_students_got_answers %}
+                    {% for student in all_students_got_answers %}
+                                <div class="row">
+                                <div class="col-md-12" style="text-align: left">
+                                    <p><a href="{% url 'user_account' student.0 %}">{{student.1}}</a></p>
+                                </div>
+                                <div class="col-md-12">
+
+                                <label style="">Replay :</label><span>{{student.4}}</span><br>
+                                <label>Message :</label><span>{{student.3}}</span><br>
+                                </div>
+                                </div>
+                    {% endfor %}
+        {% else %}
+                <h5>There is no Replayes</h5>
+        {% endif%}
+
+
+            <hr class="my-4">
+
+        </div>
+
+
+
+
+
+                <div class="col-md-4" style="padding-top: 10px;border-left: 2px black solid;">
+
+                    <p style="text-align: left;font-weight: 400;font-size: 20px;text-decoration: underline #ffc107"> Students apply to this job : </p>
+
+                    <br>
+                {% if all_students_apply_to_this_job %}
+                    {% for student in all_students_apply_to_this_job %}
+                                <div class="row">
+                                <div class="col-md-12" style="text-align: left">
+                                    <p><a href="{% url 'user_account' student.0 %}">{{student.1}}</a></p>
+                                </div>
+                                <div class="col-md-6">
+
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <button style="display: block;width: 100%;" class="btn btn-outline-success btn-sm " type="button" data-toggle="collapse" data-target="#collapseExample_{{ student.0 }}" aria-expanded="false" aria-controls="collapseExample">
+                                        Accept
+                                      </button>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <button style="display: block;width: 100%;" class="btn btn-outline-danger btn-sm " type="button" data-toggle="collapse" data-target="#collapseExample2_{{ student.0 }}" aria-expanded="false" aria-controls="collapseExample">
+                                        Reject
+                                      </button>
+
+
+
+
+
+
+
+
+                            </div>
+
+                                </div>
+
+                                </div>
+                         <div class="collapse" id="collapseExample_{{ student.0 }}">
+                                      <div class="card card-body">
+                                          <form action="{% url 'accept' student.3 student.0 %}" method="post">
+                                              {% csrf_token %}
+                                              <label>
+                                                  Message :
+                                                  <input type="text" name="message">
+                                                  <br>
+                                                  <br>
+                                                  <button type="submit" class="btn btn-success">Accept</button>
+                                              </label>
+                                          </form>
+                                      </div>
+                                    </div>
+                        <div class="collapse" id="collapseExample2_{{ student.0 }}">
+                                      <div class="card card-body">
+                                          <form action="{% url 'reject' student.3 student.0 %}" method="post">
+                                              {% csrf_token %}
+                                              <label>
+                                                  Message :
+                                                  <input type="text" name="message">
+                                                  <br>
+                                                  <br>
+                                                  <button type="submit" class="btn btn-danger">Reject</button>
+                                              </label>
+                                          </form>
+                                      </div>
+                                    </div>
+
+
+
+                                <hr class="my-4" style="border: black 1px solid">
+
+                    {% endfor %}
+                    {% else %}
+                    <h6>There is no students applyed to this job</h6>
+                {% endif %}
+
+                </div>
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+    </div>
+    <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    </section>
+
+
+
+{% endblock %}

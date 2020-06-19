@@ -1,0 +1,339 @@
+{% extends 'website/layouts/base.html' %}
+{% load static %}
+{% block title %}Jobs | Edit Informations{% endblock %}
+{% block content %}
+{% include 'user_auth/modals/change_password.html' %}
+{% include 'website/modals/add_project.html' %}
+
+
+    <style>
+    label{
+    font-weight: 700;}
+    .btn_bolck{
+    display: block;
+    width: 100%;
+}
+    </style>
+
+
+
+    <section style="margin: 20px;border: black solid 1px;padding: 50px" >
+    <h1 class="head_section" style="text-align: center;text-decoration: underline #ffc107;">Account Settings</h1>
+    <hr class="my-4">
+
+
+
+
+
+    {% if user_type == "company" %}
+
+        <form method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input hidden name="company_settings" type="text">
+        <div class="row">
+            <div class="col-md-6" style="text-align: right">
+        <img style="border-radius: 50%" src="{% if user_.3 %}{{ user_.3 }}{% endif %}" width="200px" height="200px">
+
+            </div>
+            <div class="col-md-6" style="text-align: left;padding-top: 30px;border-left: black 1px solid">
+                <label>Change Company Logo : </label><br><br>
+                <input name="company_logo" type="file"  >
+
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label >Name : </label>
+                    <input value="{{ user_.1 }}" name="name" required type="text" class="form-control"  placeholder="Enter Username">
+                </div>
+            </div>
+
+        </div>
+
+
+        <br>
+         <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Company Name : </label>
+                    <input {% if user_.6 != None %}value="{{ user_.6}}"{% endif %} required name="company_name"  type="text" class="form-control"  placeholder="Enter The Company Name">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Company Location : </label>
+                    <input {% if user_.7 != None %}value="{{ user_.7  }}"{% endif %} required name="company_address" type="text" class="form-control"  placeholder="Enter Company address">
+                </div>
+            </div>
+        </div>
+        <br>
+         <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Salary Range from : </label>
+                    <input {% if user_.8 != None %}value="{{ user_.8 }}"{% endif %} required name="salary_range_from"  type="number" class="form-control"  placeholder="Enter Company Salary Range">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Salary Range to : </label>
+                    <input {% if user_.9 != None %}value="{{ user_.9 }}"{% endif %} required name="salary_range_to"  type="number" class="form-control"  placeholder="Enter Company Salary Range">
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Number Of Employees : </label>
+                    <input {% if user_.10 != None %}value="{{ user_.10  }}"{% endif %} required name="number_of_employees" type="number" class="form-control"  placeholder="Enter Company's employees's number">
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea_about">About The Company :</label>
+                    <textarea required name="about_company" class="form-control" id="exampleFormControlTextarea_about" rows="4">{% if user_.11 != None %}{{ user_.11 }}{% endif %}</textarea>
+                </div>
+            </div>
+        </div>
+        <label>Add video</label>
+
+        <div class="row" style="border: black dashed 2px;padding: 30px">
+            <div class="col-md-12">
+                <div class="custom-file" >
+
+                    <div class="row">
+                        <div class="col-md-6">
+                          <input name="video"  type="file">
+                        </div>
+                        <div class="col-md-6">
+                            <span>The Current Video : </span><a href=" {{ user_.12 }}" > Click to Show Current Video</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <br>
+
+        <button style="display: block;width: 100%" class="btn btn-warning" type="submit">Save Changes</button>
+
+</form>
+    {% elif user_type == "client" %}
+
+
+    <form method="post" action="{% url 'edit_account_information' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+    <div class="row">
+            <div class="col-md-6" style="text-align: right">
+        <img style="border-radius: 50%" src="{{ user_.3 }}" width="200px" height="200px">
+
+            </div>
+            <div class="col-md-6" style="text-align: left;padding-top: 30px;border-left: black 1px solid">
+                <label>Change Personal Image : </label><br><br>
+                <input name="profile_image" type="file" >
+
+            </div>
+        </div>
+    <br>
+
+    <br>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Name : </label>
+                    <input required value="{% if user_.1 %}{{ user_.1 }}{% endif %}" name="name" type="text" class="form-control"  placeholder="Enter First Name">
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Address : </label>
+                    <input {% if user_.8 != None %}value="{{ user_.8 }}"{% endif %}  name="address" required type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+            </div>
+            <div class="col-md-6" style="">
+                <div class="form-group">
+                    <label>Birthday : </label>
+
+                    <input required {% if user_.7 != None %}value="{{ user_.7 }}"{% endif %} name="birthday" type="date" class="form-control" aria-describedby="emailHelp" placeholder="Enter Your Age">
+                </div>
+            </div>
+        </div>
+
+
+
+
+<br>
+    <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Specialist : </label>
+                    <input required {% if user_.12 != None %}value="{{ user_.12 }}"{% endif %}  name="specialist"  type="text" class="form-control"  placeholder="Enter Your specialist">
+                </div>
+            </div>
+
+        </div>
+<br>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label >Skills :</label>
+                    <textarea required name="skills" class="form-control" rows="4">{% if user_.10 != None %}{{ user_.10 }}{% endif %}</textarea>
+                </div>
+            </div>
+        </div>
+
+
+<br>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label >Qualifications :</label>
+                    <textarea required name="qualifications" class="form-control"  rows="4">{% if user_.9 != None %}{{ user_.9 }}{% endif %}</textarea>
+                </div>
+            </div>
+        </div>
+
+    <br>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label >Education :</label>
+                    <textarea required name="education" class="form-control" rows="4">{% if user_.11 != None %}{{ user_.11 }}{% endif %}</textarea>
+                </div>
+            </div>
+        </div>
+     <br>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label >Practical Experiences :</label>
+
+
+                <div style="text-align: center">
+                                <div style="text-align: center">
+                                    <div class="row">
+                                        {% if practical_experiences %}
+                                                <div class="col-md-6">
+                                                    <button style="" class="btn btn-primary btn_bolck" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                                        Show Project
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-6">
+                                                   <button class="btn btn-success " style="display: block;width: 100%;" type="button" data-toggle="modal" data-target="#exampleModal_add_project">
+                                                        Add Project
+                                                    </button>
+                                                </div>
+                                            {% else %}
+                                            <div class="col-md-12">
+                                                   <button class="btn btn-success " style="display: block;width: 100%;" type="button" data-toggle="modal" data-target="#exampleModal_add_project">
+                                                           Add Project
+                                                        </button>
+                                                    </div>
+                                            {% endif %}
+
+                                    </div>
+
+                                </div>
+                                    <div class="collapse" id="collapseExample">
+                                        <div class=" row">
+                                            {% if practical_experiences %}
+                                                {% for practical in practical_experiences%}
+                                                     <div class="col-md-3 col-sm-6 mb-4 text-center" id="service_{{ practical.0 }}" style="border: black 2px solid;margin: 30px">
+                                                        <div class="panel border p-4" style="min-height: 400px" id="content_of_service_number_{{ practical.0  }}">
+                                                            <span class="icon text-secondary"><img alt="logo" width="70px" height="70px" src="{{ practical.3 }}"></span>
+                                                            <h4 class="font-ram py-4">{{ practical.1 }}</h4>
+                                                            <p class="font-ram font-size-16 text-black-50">
+                                                                {{practical.2}}
+                                                            </p>
+                                                            <hr class="my-4">
+                                                            <div class="row" style="text-align: left;">
+
+                                                                <div class="col-md-12">
+                                                                    <form action="{% url 'delete_project' %}" method="post">
+                                                                        {% csrf_token %}
+                                                                        <input hidden name="std" value="{{ practical.0 }}">
+                                                                        <input hidden name="title" value="{{ practical.1 }}">
+                                                                        <input hidden name="desc" value="{{ practical.2 }}">
+                                                                        <input hidden name="image" value="{{ practical.3 }}">
+                                                                        <button type="submit" href="" style="width: 100%;" class="btn btn-danger" onclick="">Delete</button>
+                                                                    </form>
+
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                     </div>
+
+
+                                                {% endfor %}
+                                                {% else %}
+                                                <hr class="col-md-12 my-4">
+                            <p class="col-md-12" style="text-align: center;font-size: 25px;font-family: Roboto,Arial, Helvetica, sans-serif;">Unfortunately , You don't have Practical Experiences</p>
+                            <hr class="col-md-12 my-4">
+                                        {% endif %}
+                                      </div>
+                                    </div>
+                            </div>
+                            </div>
+                </div>
+            </div>
+
+
+<br>
+    <div class="row" style="border: black dashed 2px;padding: 30px">
+            <div class="col-md-12">
+                <div class="custom-file" >
+                    <div class="row">
+                        <div class="col-md-6">
+                          <input name="cv"  type="file">
+                        </div>
+                        <div class="col-md-6">
+                            <span>The Current CV : </span><a href=" {{ user_.13 }}" > Click to Show Current CV</a>
+
+                        </div>
+                    </div>
+{#                  <label class="custom-file-label" for="customFileLangHTML" data-browse="Change your personal image">choose an image</label>#}
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <button style="display: block;width: 100%" class="btn btn-warning" type="submit">Save Changes</button>
+
+</form>
+        <br>
+<hr style="color: black;border: black 2px solid"><br>
+        <div class="row">
+        <div class="col-md-12">
+            <button type="button" class="btn btn-info btn_bolck" data-toggle="modal" data-target="#exampleModal_change_password">
+                    Change The password
+      </button>
+        </div>
+
+        </div>
+    {% endif %}
+    </section>
+
+{% endblock %}

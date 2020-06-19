@@ -1,0 +1,283 @@
+{% extends 'website/layouts/base.html' %}
+{% load static %}
+{% block title %}Jobs | Account Page{% endblock %}
+{% block content %}
+
+
+    <style>
+
+        .label_info{
+            font-weight: 400;
+        }
+
+        .text_area_info{
+            border: #ffc107 1px groove;
+            margin-left: 50px;
+            padding: 20px;
+            color: blue;
+        }
+
+        .info{
+            color: blue;
+        }
+
+        .btn_bolck{
+        display: block;
+        width: 100%;
+        }
+
+        .img_user{
+            border-radius: 50%;
+            border: black 2px solid;
+        }
+
+    #video_company{
+        width: 100%;
+        height: auto;
+    }
+
+    </style>
+
+
+
+    <section style="margin: 20px;border: black solid 1px;padding: 20px" >
+        {% if user_type == "client" %}
+            <div class="row">
+
+                <div class="col-md-6" style="text-align: right">
+                    <img style="border-radius: 50%" src="{% if user_.3 %}{{user_.3}}{% endif %}" width="200px" height="200px">
+                </div>
+
+                <div class="col-md-6" style="text-align: left;padding-top: 50px;border-left: black 1px solid">
+                    <p style="font-weight: 500;font-size: 30px">{{user_.1}}</p>
+
+                </div>
+            </div>
+
+            <hr class="my-4">
+                {% if guest %}
+                    <h4>{{ user_.1 }}Information :</h4>
+                {% else %}
+                    <h4>Your Account Information :</h4>
+                {% endif %}
+
+            <div class="lead">
+                <br>
+                <span class="label_info">Name : </span><span class="info"> {{ user_.1 }}</span><br><br>
+                <span class="label_info">Email : </span><span class="info">{{ user_.2 }}</span><br><br>
+                <span class="label_info">Address : </span><span class="info">{{ user_.8 }}</span><br><br>
+                <span class="label_info">Birthday : </span><span class="info">{{ user_.7 }}</span><br><br>
+                <span class="label_info">Skills : </span><br><br>
+
+                <div class="text_area_info">
+                    {{ user_.10 }}
+                </div>
+
+                <br>
+
+                <span class="label_info">Qualifications : </span><br><br>
+                <div class="text_area_info">
+                    {{ user_.9 }}
+                </div>
+
+                <br>
+
+                <span class="label_info">Education : </span><br><br>
+                <div class="text_area_info">
+                    {{ user_.11 }}
+                </div>
+
+                <br>
+
+                <span class="label_info">Specialist : </span><br><br>
+                <div class="text_area_info">
+                    {{ user_.12 }}
+                </div>
+
+                <br>
+                {% if practical_experiences %}
+                <span class="label_info">Practical Experiences : </span><br><br>
+
+
+             <div style="text-align: center">
+                                <div style="text-align: center">
+                                    <div class="row">
+
+                                                <div class="col-md-4">
+                                                    <button style="" class="btn btn-primary btn_bolck" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                                        Show practical experiences
+                                                    </button>
+                                                </div>
+
+
+
+                                    </div>
+
+                                </div>
+                                    <div class="collapse" id="collapseExample">
+                                        <div class=" row">
+                                            {% if practical_experiences %}
+                                                {% for practical in practical_experiences%}
+                                                     <div class="col-md-3 col-sm-6 mb-4 text-center" id="service_{{ practical.0 }}" style="border: black 2px solid;margin: 30px">
+                                                        <div class="panel border p-4" style="min-height: 400px" id="content_of_service_number_{{ practical.0  }}">
+                                                            <span class="icon text-secondary"><img alt="logo" width="70px" height="70px" src="{{ practical.3 }}"></span>
+                                                            <h4 class="font-ram py-4">{{ practical.1 }}</h4>
+                                                            <p class="font-ram font-size-16 text-black-50">
+                                                                {{practical.2}}
+                                                            </p>
+                                                            <hr class="my-4">
+                                                            <div class="row" style="text-align: left;">
+                                                                <div class="col-md-6">
+                                                                    <a style="width: 100%;" class="btn btn-outline-warning" href="">edit</a>
+
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <a style="width: 100%;" class="btn btn-outline-danger" onclick="">delete</a>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                     </div>
+
+
+                                                {% endfor %}
+                                        {% endif %}
+                                      </div>
+                                    </div>
+                            </div>
+
+            {% endif %}
+
+
+
+
+
+
+
+
+                <br><br>
+
+                <a href="{% if user_.13 %}{{ user_.13 }}{% endif %}" style="color: white" class="btn btn-secondary btn_bolck">
+                    Download{% if guest%} {{ user_.1 }}{% else %} My {% endif %} CV
+                </a>
+
+            </div>
+
+            <br>
+
+            {% if not guest %}
+
+                <hr class="my-4">
+
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <a href="{% url 'edit_account_information' %}" class="btn btn-warning btn_bolck" style="color: black">
+                            Edit Information
+                        </a>
+                    </div>
+
+                    <div class="col-md-4">
+                        <a href="{% url 'my_applayed_jobs' %}" class="btn btn-info btn_bolck" style="color: white">
+                            My applyed Jobs
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="{% url 'offer' %}" class="btn btn-success btn_bolck" style="color: white">
+                            Show all Offer
+                        </a>
+                    </div>
+
+
+
+                </div>
+                <br>
+            {% endif %}
+
+        {% else %}
+{#            {% include 'website/modals/add_job.html' %}#}
+            <div class="row">
+
+                <div class="col-md-6" style="text-align: right">
+                <img class="img_user" src="{% if user_.3 %}{{user_.3}}{% endif %}" width="200px" height="200px">
+                </div>
+
+                <div class="col-md-6" style="text-align: left;padding-top: 50px;border-left: black 1px solid">
+                    <p style="font-weight: 500;font-size: 30px">{{user_.6}} </p>
+
+                </div>
+
+            </div>
+
+            <hr class="my-4">
+            {% if guest %}
+                <h4>{{user_.6}} Information :</h4>
+            {% else %}
+                <h4>Your Company Account Information :</h4>
+            {% endif %}
+
+            <div class="lead">
+                <br>
+
+                <ul>
+
+                        <li><span class="label_info">CEO : </span><span class="info">{{ user_.1 }}</span><br><br></li>
+
+                    <li><span class="label_info">Company Name : </span><span class="info"> {{user_.6}}</span><br><br></li>
+                    <li><span class="label_info">Company Place : </span><span class="info">{{ user_.7 }}</span><br><br></li>
+                    <li><span class="label_info">Email : </span><span class="info">{{ user_.2 }}</span><br><br></li>
+                    <li><span class="label_info">The Salary Range Of the Companmy : </span><span class="info">{{ user_.8 }}$ &nbsp; <-> &nbsp;{{ user_.9 }}$</span><br><br></li>
+                    <li><span class="label_info">Number Of Employees Of the Companmy : </span><span class="info">{{ user_.10 }}</span><br><br></li>
+                    <li><span class="label_info">About The Company : </span><br><br></li>
+                </ul>
+
+                <div style="min-height: 100px" class="text_area_info">
+                    {{ user_.11 }}
+                </div>
+
+                <br>
+
+                <br><br>
+            </div>
+            <br>
+            <li><span class="label_info">Video about Company : </span><br><br></li>
+                    <video id="video_company"  controls>
+                          <source src="{{user_.12}}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                <br><br>
+
+            {% if not guest %}
+
+{#                <button type="button"  style="" class="btn btn-secondary btn_bolck" data-toggle="modal" data-target="#exampleModal_add_job">#}
+{#                    Add Job#}
+{#                </button>#}
+
+                <hr class="my-4">
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <a href="{% url 'edit_account_information' %}" class="btn btn-warning btn_bolck" style="color: black">
+                            Edit Information
+                        </a>
+                    </div>
+
+                    <div class="col-md-4">
+                        <a href="{% url 'all_students' %}" class="btn btn-info btn_bolck" style="color: white">
+                            All Students
+                        </a>
+                    </div>
+
+                    <div class="col-md-4">
+                        <a href="{% url 'my_jobs' %}" class="btn btn-success btn_bolck" style="color: white">
+                            My Jobs
+                        </a>
+                    </div>
+
+                </div>
+                <br>
+            {% endif %}
+        {% endif %}
+    </section>
+
+{% endblock %}

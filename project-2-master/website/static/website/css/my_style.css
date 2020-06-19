@@ -1,0 +1,26 @@
+.job_title{
+    font-weight: 700;
+}
+
+.navbarM {
+    background-color: #000000;
+}
+.buttonM {
+    color: #ecc19c;
+}
+
+.liM {
+    margin: 10px;
+}
+#logo {
+    color: #ffc107;
+    font-size: 30px;
+    font-weight: 300;
+}
+.head_section {
+    text-decoration: underline #ffc107;
+}
+
+label {
+    font-weight: 700;
+}

@@ -1,0 +1,134 @@
+{% extends 'website/layouts/base.html' %}
+{% load static %}
+{% block title %}Jobs | Job Details{% endblock %}
+{% block content %}
+    <style>
+        #company_name:hover{
+            color: white;
+        }
+    #company_name{
+        padding: 5px;
+        min-width: 70px;
+    }
+    </style>
+<div class="row">
+<div class="col-md-6"><a href="{% if type_user == 'client' %}{% url 'all_companys' %}{% else %}{% url 'all_students' %}{% endif %}"  class="btn btn-warning" style="display: block;width: 100%;color: black">All {% if type_user == 'client' %}Companys{% else %}Students{% endif %}</a> </div>
+<div class="col-md-6"><a href="{% url 'index' %}" class="btn btn-info" style="display: block;width: 100%;color: white">All Jobs</a> </div>
+{#<div class="col-md-4"><a href="{% url 'my_applayed_jobs' %}" class="btn btn-secondary" style="display: block;width: 100%;color: white">My {% if request.user.student_user%}Apllyed{% else %}Pubblished{% endif %} Jobs</a> </div>#}
+</div>
+    <br>
+    <section id="job_details">
+    <div style="border: black 1px solid; ">
+<br>
+<div class="container">
+            <div class="row">
+        <div class="col-md-8 " style="border-right: 2px black solid;padding: 30px;font-size: 17px">
+{#            {{ job }}#}
+
+            <p style="text-align: center;font-weight: 700;font-size: 30px"> {{ job.0.2 }}</p>
+
+            <hr class="my-4">
+
+            <p style="font-weight: 700">Skills Required :
+                <span style="font-weight: 200;color: #2979ff">
+                    <ul>
+                        {{ job.0.10 }}
+                    </ul>
+                </span>
+            </p>
+
+            <br>
+
+            <p> <span style="font-weight: 700"> Job Description :- </span> <br><br>
+                {{ job.0.3 }}
+            </p>
+
+            <hr class="my-4">
+
+            <div><span style="font-weight: 700"> About the Employer :- </span><br><br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="{% if same_company.0.6 %}{{ same_company.0.6 }}{% endif %}" width="200px" href="200px">
+                    </div>
+                    <div class="col-md-8">
+                        <br>
+                        <span >Company Name : </span><span style="color: #2979ff"><a class="btn btn-outline-info" href="{% url 'user_account' same_company.0.0 %}" id="company_name">{{ same_company.0.1 }}</a></span> <br><br>
+                        <span>Company Place : </span><span style="color: #2979ff">{{ same_company.0.2 }}</span><br><br>
+                        <span>Company Salary : </span><span style="color: #2979ff">{{ same_company.0.3 }}$ &nbsp; <-> &nbsp;{{ same_company.0.4 }}$</span><br><br>
+                        <span>Number of Company Emploee : </span><span style="color: #2979ff">{{ same_company.0.5 }}</span><br><br>
+                    </div>
+                </div>
+
+            </div>
+
+            <hr class="my-4">
+        {% if type_user == 'client' %}
+        {% if is_appled %}
+
+            <a href="{% url 'delete_my_apply' job.0.0 %}" type="button" class="btn btn-outline-danger" style="display: block;width: 100%">Delete my apply To This Job</a>
+            {% else %}
+            <a href="{% url 'apply_to_job' job.0.0 %}" type="button" class="btn btn-warning" style="display: block;width: 100%">Apply To This Job</a>
+
+        {% endif %}
+        {% elif type_user == 'company' and request.user.username == same_company.0.0 %}
+            <a href="{% url 'delete_job' job.0.0 %}" type="button" class="btn btn-outline-danger" style="display: block;width: 100%">Delete This Job</a>
+        {% endif %}
+
+        <br>
+        <br>
+
+
+        </div>
+
+
+
+
+
+                <div class="col-md-4" style="padding-top: 10px">
+
+                    <p style="text-align: left;font-weight: 400;font-size: 20px;text-decoration: underline #ffc107"> Another jobs from this Company : </p>
+
+                    <br>
+                    {% for job_of_same_company in jobs_of_same_company %}
+                            {% if job_of_same_company.0 != job.0.0 %}
+                                <p><a href="{% url 'job_details' job_of_same_company.0 %}">{{job_of_same_company.1}}</a></p>
+                                <hr class="my-4">
+                            {% endif %}
+                    {% endfor %}
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+                </div>
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+<br>
+    </div>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+
+
+{% endblock %}

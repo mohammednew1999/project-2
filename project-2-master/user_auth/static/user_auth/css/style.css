@@ -1,0 +1,13 @@
+
+body{
+    /*background-image: url("../images/bg2.jpg");*/
+    background-position: center center;
+    /*background-repeat: repeat;*/
+    background-attachment: fixed;
+
+}
+.parent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

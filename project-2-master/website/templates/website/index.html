@@ -1,0 +1,406 @@
+{% extends 'website/layouts/base.html' %}
+{% load static  %}
+{% block title %}Jobs | Home{% endblock %}
+{% block content %}
+
+{% include 'user_auth/modals/login.html' %}
+{% include 'user_auth/modals/sign_up.html' %}
+{% include 'website/modals/add_job.html' %}
+<div style="min-height: 300px">
+{% if request.user.is_authenticated %}
+    <div class="row">
+<div class="col-md-6"><a href="{% if type_user == 'client' %}{% url 'all_companys' %}{% else %}{% url 'all_students' %}{% endif %}"  class="btn btn-warning" style="display: block;width: 100%;color: black">All {% if type_user == 'client' %}Companys{% else %}Students{% endif %}</a> </div>
+{% if type_user == 'client' %}
+        <div class="col-md-6"><a href="{% url 'my_applayed_jobs' %}" class="btn btn-info" style="display: block;width: 100%;color: white">My applyed jobs</a> </div>
+    {% else %}
+     <div class="col-md-6">
+     <button class="btn btn-info " style="display: block;width: 100%;" type="button" data-toggle="modal" data-target="#exampleModal_add_job">
+            Add Job
+        </button>
+     </div>
+    {% endif %}
+{#<div class="col-md-4"><a href="{% url 'my_applayed_jobs' %}" class="btn btn-secondary" style="display: block;width: 100%;color: white">My {% if request.user.student_user%}Apllyed{% else %}Pubblished{% endif %} Jobs</a> </div>#}
+</div>
+
+<br>
+        <h1 style=";text-align: center;">
+            {% if from_job %}
+                Currently available jobs
+
+            {% elif from_apply %}
+                My Applayed Jobs
+            {% elif from_myjob %}
+                My Jobs
+            {% elif from_std %}
+                All Students
+            {% elif from_com %}
+                All Companys
+                {% elif from_offers %}
+                All Offers
+            {% endif %}
+        </h1>
+<br>
+
+<hr class="my-4">
+
+{#        <p style="font-size: 50px">Welcome <span style="font-weight: 100;text-decoration: underline  #e0a800  solid ">{{ request.user.first_name }} {{ request.user.last_name }}</span> to your account . </p>#}
+{#        <div class="container" style="text-align: left;font-size: 50px" >#}
+{#        <p style="font-size: 20px"> : </p>#}
+
+        <div class="container">
+            <div class="row">
+        <div class="col-md-3 " style="border: 2px black solid;padding: 30px">
+                    <div class="filter-widget"  style="">
+                        <h4 class="fw-title">Filter</h4>
+                        <ul class="filter-catagories">
+                            <li><a href="#">Filter</a></li>
+                            <li><a href="#">Filter</a></li>
+                            <li><a href="#">Filter</a></li>
+                        </ul>
+                    </div>
+                    <div class="filter-widget">
+                        <h4 class="fw-title">Filter</h4>
+                        <div class="fw-brand-check">
+                            <div class="bc-item">
+                                <label for="bc-calvin">
+                                    Filter
+                                    <input type="checkbox" id="bc-calvin">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="bc-item">
+                                <label for="bc-diesel">
+                                    Filter
+                                    <input type="checkbox" id="bc-diesel">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="bc-item">
+                                <label for="bc-polo">
+                                    Filter
+                                    <input type="checkbox" id="bc-polo">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="bc-item">
+                                <label for="bc-tommy">
+                                    Filter
+                                    <input type="checkbox" id="bc-tommy">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-widget">
+                        <h4 class="fw-title">Filter</h4>
+                        <div class="filter-range-wrap">
+                            <div class="range-slider">
+                                <div class="price-input">
+                                    <input type="text" id="minamount" value="30">
+                                    <input type="text" id="maxamount" value="50">
+                                </div>
+                            </div>
+                            <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
+                                data-min="33" data-max="98">
+                                <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
+                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
+                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
+                            </div>
+                        </div>
+                        <a href="#" class="filter-btn">Filter</a>
+                    </div>
+                    <div class="filter-widget">
+                        <h4 class="fw-title">Filter</h4>
+                        <div class="fw-color-choose">
+                            <div class="cs-item">
+                                <input type="radio" id="cs-black">
+                                <label class="cs-black" for="cs-black">Filter</label>
+                            </div>
+                            <div class="cs-item">
+                                <input type="radio" id="cs-violet">
+                                <label class="cs-violet" for="cs-violet">Filter</label>
+                            </div>
+                            <div class="cs-item">
+                                <input type="radio" id="cs-blue">
+                                <label class="cs-blue" for="cs-blue">Filter</label>
+                            </div>
+                            <div class="cs-item">
+                                <input type="radio" id="cs-yellow">
+                                <label class="cs-yellow" for="cs-yellow">Filter</label>
+                            </div>
+                            <div class="cs-item">
+                                <input type="radio" id="cs-red">
+                                <label class="cs-red" for="cs-red">Filter</label>
+                            </div>
+                            <div class="cs-item" id="hi">
+                                <input type="radio" id="cs-green">
+                                <label class="cs-green" for="cs-green">Filter</label>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+
+
+                <div class="col-md-9">
+                {% if jobs %}
+                    {% for job in jobs %}
+                        <div class="card mb-3 ">
+                          <div class="row no-gutters">
+                            <div class="col-md-3">
+                              <img src="{% if job.4 %}{{ job.4 }}{% endif %}" width="100%" height="100%" class="card-img" alt="...">
+                            </div>
+                            <div class="col-md-9">
+                              <div class="card-body">
+                              <div>
+                                  <h5 class="card-title job_title">{{ job.1 }}</h5>
+                                  <div style="text-align: right;margin-top: -30px"> <small>{{ job.5 }}</small></div>
+                              </div>
+    <br>
+                                <p class="card-text">{{ job.2|slice:50 }}{% if job.2|length > 50 %}....{% endif %}</p>
+                            {% if job.3 %}
+                                <p class="card-text" ><span style="font-weight: 500"> Skills Required  </span> :
+                                    <span style="color: #2979ff" >
+                                  {{ job.3 }}
+                                </span></p>
+                                {% else %}
+                                <br>
+                                <br>
+                              {% endif%}
+                                {% comment %}<small>Employer : {{ job.employer.company_name }}</small>
+                              <br><br>{% endcomment %}
+                                <a href="{% url 'job_details' job.0 %}" class="btn btn-info btn-sm" style="display:block;width: 100%;color: white">Show information</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+
+                    {% endfor %}
+
+
+                {% elif my_applayed_jobs %}
+                    {% for job in my_applayed_jobs %}
+                        <div class="card mb-3 ">
+                          <div class="row no-gutters">
+                            <div class="col-md-3">
+                              <img src="{% if job.2 %}{{ job.2 }}{% endif %}" width="100%" height="200px" class="card-img" alt="...">
+                            </div>
+                            <div class="col-md-9">
+                              <div class="card-body">
+                              <div class="row">
+                                  <div class="col-md-8">
+                                       <h5 class="card-title job_title">{{ job.3 }}</h5>
+                                  </div>
+                                  <div class="col-md-4">
+
+                                  </div>
+                              </div>
+
+                                <p class="card-text">{{ job.4|slice:100 }}{% if job.4|length > 100 %}....{% endif %}</p>
+                            {% if job.5 %}
+                                <p class="card-text" ><span style="font-weight: 500"> Skills Required  </span> :
+                                    <span style="color: #2979ff" >
+                                  {{ job.5 }}
+                                </span></p>
+                                {% else %}
+                                <br>
+                                <br>
+                              {% endif%}                                {% comment %}<small>Employer : {{ job.employer.company_name }}</small>
+                              <br><br>{% endcomment %}
+                                <a href="{% url 'job_details' job.1 %}" class="btn btn-info btn-sm" style="display:block;width: 100%;color: white">Show information</a>
+                              </div>
+                            <div style="text-align: center">
+                                <p style="text-align: center">
+
+                                      <button style="display: block;width: 70%;margin-left: 30px;margin-right: 60px" class="btn btn-outline-primary btn-sm" type="button" data-toggle="collapse" data-target="#collapseExample_{{ job.1 }}" aria-expanded="false" aria-controls="collapseExample">
+                                        {{job.7}}
+                                      </button>
+                                    </p>
+                                    <div class="collapse" id="collapseExample_{{ job.1 }}">
+                                      <div class="card card-body">
+                                          {{ job.6 }}
+                                      </div>
+                                    </div>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+
+
+                    {% endfor %}
+
+
+                    {% elif all_students %}
+                        {% for student in all_students %}
+                            <div class="card mb-3 ">
+                              <div class="row no-gutters">
+                                <div class="col-md-3">
+                                  <img src="{% if student.3 %}{{ student.3 }}{% endif %}" width="100%" height="100%" class="card-img" alt="...">
+                                </div>
+                                <div class="col-md-9">
+                                  <div class="card-body">
+                                    <h5 class="card-title job_title">{{ student.1 }}</h5>
+                                    <p class="card-text">Email : {{ student.2 }}</p>
+                                    <p class="card-text">Address : {{ student.4 }}</p>
+                                    <p class="card-text" ><span style="font-weight: 500"> Skills </span> : <span style="color: #2979ff" >{{ student.5}}</span></p>
+                                    {% comment %}<small>Employer : {{ job.employer.company_name }}</small>
+                                  <br><br>{% endcomment %}
+                                      {% if request.user.company_user %}
+                                          <div class="row">
+                                          <div class="col-md-6">
+                                              <a href="{% url 'user_account' student.0 %}" class="btn btn-info btn-sm" style="display:block;width: 100%;color: white">Show all information</a>
+                                          </div>
+                                          <div class="col-md-6">
+                                              <a href="{% url 'user_account' student.0 %}" class="btn btn-warning btn-sm" style="color:black;display:block;width: 100%;">Hire This Student</a>
+                                          </div>
+                                          </div>
+                                      {% else %}
+                                    <a href="{% url 'user_account' student.0 %}" class="btn btn-info btn-sm" style="display:block;width: 100%;color: white">Show all information</a>
+                                    {% endif %}
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+
+                        {% endfor %}
+
+
+                    {% elif  all_companys %}
+                        {% for company in all_companys %}
+                            <div class="card mb-3 ">
+                              <div class="row no-gutters">
+                                <div class="col-md-3">
+                                  <img src="{% if company.4 %}{{ company.4 }}{% endif %}" width="100%" height="100%" class="card-img" alt="...">
+                                </div>
+                                <div class="col-md-9">
+                                  <div class="card-body">
+                                    <h5 class="card-title job_title">{{ company.1 }}</h5>
+                                    <p class="card-text">Email : {{ company.3 }}</p>
+                                    <p class="card-text">Address : {{ company.2 }}</p>
+                                    <p class="card-text" ><span style="font-weight: 500"> About Company </span> : <span style="color: #2979ff" >{{ company.5|slice:40 }}{% if company.5|length > 40 %}....{% endif %}</span></p>
+
+                                      <a href="{% url 'user_account' company.0 %}" class="btn btn-info btn-sm" style="display:block;width: 100%;color: white">Show all information</a>
+
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+
+                        {% endfor %}
+                    {% elif  offers %}
+                        {% for offer in offers %}
+                            <div class="card mb-3 " style="border: 2px black solid">
+                              <div class="row no-gutters" style="padding: 10px">
+                                  <br>
+                                  <br>
+                                  <div class="col-md-12">
+                                      <h4 style="text-align: center">{{ offer.2 }}</h4>
+                                  </div>
+<br>
+                                 <hr class="my-4 col-md-12">
+                            <div class="col-md-12 row">
+                            <div class="col-md-6">
+                                <a class="btn btn-info" style="display: block;width: 100%" href="{% url 'job_details' offer.0 %}">Show job info</a>
+                            </div>
+                            <div class="col-md-3">
+                                <a class="btn btn-success" style="display: block;width: 100%" href="">accept</a>
+                            </div>
+                            <div class="col-md-3">
+                                <a class="btn btn-danger" style="display: block;width: 100%" href="">reject</a>
+                            </div>
+                            </div>
+                              </div>
+                            </div>
+<br>
+                                  <br>
+  {% endfor %}
+                {% elif  my_jobs %}
+                        {% for job in my_jobs %}
+                            <div class="card mb-3 " style="border: 2px black solid">
+                              <div class="row no-gutters" style="padding: 10px">
+                                  <br>
+                                  <br>
+                                  <div class="col-md-12">
+                                      <h4 style="text-align: center">{{ job.2 }}</h4>
+                                  </div>
+<br>
+                                 <hr class="my-4 col-md-12">
+                            <div class="col-md-12 row">
+                            <div class="col-md-6">
+                                <a class="btn btn-outline-info" style="display: block;width: 100%" href="{% url 'job_details' job.0 %}">Show job</a>
+                            </div>
+                                <div class="col-md-6">
+                                <a class="btn btn-outline-warning" style="display: block;width: 100%" href="{% url 'settings_job' job.0 %}">Job Settings</a>
+                            </div>
+
+                            </div>
+                              </div>
+                            </div>
+<br>
+                                  <br>
+
+
+                        {% endfor %}
+
+
+                    {% endif %}
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+
+    {% else%}
+        <div class="container" style="text-align: center">
+        <p style="font-size: 30px">Welcome To Our Home Page</p>
+
+        <br>
+
+        <br>
+        <div>
+        <div class="row">
+            <div class="col-md-6">
+                 <button style="display:block;width: 100%" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#exampleModal_login">
+                    Login
+              </button>
+            </div>
+            <div class="col-md-6">
+                 <button style="display:block;width: 100%" type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#exampleModal_signup">
+                    Sign up
+              </button>
+            </div>
+        </div>
+
+
+
+
+        </div>
+</div>
+    {% endif%}
+</div>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+{% endblock %}

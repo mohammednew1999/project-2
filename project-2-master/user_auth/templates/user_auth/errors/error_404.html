@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>404</title>
+      <style>
+          body{
+              margin: 0;
+              padding: 0;
+              background-color: black;
+          }
+          div {
+
+              margin-top: 15%;
+              margin-left: 5%;
+
+            }
+
+      </style>
+  </head>
+  <body>
+<div style="text-align: center;color: white;font-size: 50px;font-family: 'Roboto', 'Lucida Grande', Verdana, Arial, sans-serif">
+    404 , page not found !
+    <br>
+    <br>
+    <p style="text-align: center;font-size: 15px"><a href="{% url 'home' %}" style="text-decoration: none;color: #e0a800;border: #e0a800 2px solid;padding: 10px">Home Page</a> </p>
+</div>
+  </body>
+</html>
